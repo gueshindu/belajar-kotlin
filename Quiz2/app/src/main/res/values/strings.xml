@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Quiz2</string>
+    <string name="logo_desc">Quiz 2</string>
+    <string name="nip">NIP</string>
+    <string name="nip_example">ARN/ART</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="nip_pwd_failed">NIP dan Password harus diisi</string>
+    <string name="nip_fail">NIP harus diisi</string>
+    <string name="pwd_fail">Password harus diisi</string>
+    <string name="menuju_halaman_beranda">Menuju Halaman Beranda…</string>
+    <string name="format_nip_arn_art">Format nip: ARN/ART</string>
+    <string name="belum_bisa_akses">Belum bisa akses?</string>
+    <string name="hubungi_cs_ikhwan">Hubungi CS ikhwan</string>
+    <string name="menghubungi_cs_ikhwan">Menghubungi CS ikhwan</string>
+    <string name="hubungi_cs_akhwat">Hubungi CS akhwat</string>
+    <string name="menghubungi_cs_akhwat">Menghubungi CS akhwat</string>
+    <string name="lihat_faq">Lihat FAQ</string>
+    <string name="ke_halaman_faq">Ke halaman FAQ</string>
+</resources>
