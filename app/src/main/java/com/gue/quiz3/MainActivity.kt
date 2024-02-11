@@ -3,8 +3,6 @@ package com.gue.quiz3
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.annotation.Dimension
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -16,9 +14,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -30,39 +26,29 @@ import androidx.compose.material.icons.filled.Search
 import androidx.compose.material.icons.rounded.List
 import androidx.compose.material3.BottomAppBar
 import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonColors
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
-import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.MediumTopAppBar
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.graphics.vector.ImageVector
-import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.gue.quiz3.data.DataContoh
-import com.gue.quiz3.data.Kota
 import com.gue.quiz3.data.Santri
 import com.gue.quiz3.ui.theme.Quiz3Theme
 import com.gue.quiz3.ui.theme.UserInitial
-import com.gue.quiz3.ui.theme.md_theme_light_background
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -85,17 +71,17 @@ class MainActivity : ComponentActivity() {
 
 
 @Composable
-fun Quiz3App(listSantri: List<Santri>, modifier: Modifier = Modifier) {
+fun Quiz3App(listSantri: List<Santri>) {
 
-    Scaffold (
+    Scaffold(
         topBar = {
             MyTopAppBar()
         },
         bottomBar = {
             MyBottomBar()
         }
-    ) {
-        paddingValues -> AppBody(listSantri = listSantri , paddingValue = paddingValues)
+    ) { paddingValues ->
+        AppBody(listSantri = listSantri, paddingValue = paddingValues)
     }
 }
 
@@ -124,35 +110,48 @@ fun MyTopAppBar(modifier: Modifier = Modifier) {
 
 
 @Composable
-fun MyBottomBar(modifier: Modifier = Modifier) {
+fun MyBottomBar() {
     BottomAppBar(
         contentPadding = PaddingValues(horizontal = 10.dp),
         actions = {
             Row(
-                modifier =Modifier.fillMaxWidth(),
+                modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                IconButtonGue(icon = Icons.Filled.Home, buttonText = stringResource(R.string.button_home), enable = false )
-                IconButtonGue(icon = Icons.Filled.Search, buttonText = stringResource(R.string.button_find), enable = true )
-                IconButtonGue(icon = Icons.Filled.Person, buttonText = stringResource(R.string.button_profile), enable = false )
+                IconButtonGue(
+                    icon = Icons.Filled.Home,
+                    buttonText = stringResource(R.string.button_home),
+                    enable = false
+                )
+                IconButtonGue(
+                    icon = Icons.Filled.Search,
+                    buttonText = stringResource(R.string.button_find),
+                    enable = true
+                )
+                IconButtonGue(
+                    icon = Icons.Filled.Person,
+                    buttonText = stringResource(R.string.button_profile),
+                    enable = false
+                )
 
             }
 
         },
 
-    )
+        )
 }
 
 @Composable
 fun AppBody(listSantri: List<Santri>, paddingValue: PaddingValues) {
-    Column (
+    Column(
         modifier = Modifier.padding(paddingValue)
     ) {
-        Text(stringResource(R.string.sub_title),
+        Text(
+            stringResource(R.string.sub_title),
             style = MaterialTheme.typography.labelMedium,
             modifier = Modifier.padding(horizontal = dimensionResource(R.dimen.padding_12))
-            )
-        LazyColumn() {
+        )
+        LazyColumn {
             items(listSantri) {
                 ItemSantri(
                     santri = it,
@@ -206,7 +205,7 @@ fun SantriInitial(santri: Santri, modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun SantriInfo(santri: Santri, modifier: Modifier = Modifier) {
+fun SantriInfo(santri: Santri) {
     Column {
         Text(santri.nameAndId(), style = MaterialTheme.typography.bodyLarge)
         Text(
@@ -219,13 +218,15 @@ fun SantriInfo(santri: Santri, modifier: Modifier = Modifier) {
 @Composable
 fun IconButtonGue(icon: ImageVector, buttonText: String, enable: Boolean = false) {
 
-    Button(onClick = { /* do something */ },
+    Button(
+        onClick = { /* do something */ },
         modifier = Modifier.clip(shape = RoundedCornerShape(0.dp)),
         colors = ButtonDefaults.buttonColors(MaterialTheme.colorScheme.background)
     )
     {
-        val btnColor = if(enable) MaterialTheme.colorScheme.surfaceTint else MaterialTheme.colorScheme.outline
-        Column (horizontalAlignment = Alignment.CenterHorizontally) {
+        val btnColor =
+            if (enable) MaterialTheme.colorScheme.surfaceTint else MaterialTheme.colorScheme.outline
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
             Icon(
                 icon,
                 contentDescription = buttonText,
@@ -240,7 +241,7 @@ fun IconButtonGue(icon: ImageVector, buttonText: String, enable: Boolean = false
 @Preview(showBackground = true)
 @Composable
 fun Quiz3Preview() {
-    Quiz3Theme{
+    Quiz3Theme {
         Quiz3App(DataContoh().loadExampleData())
     }
 }
@@ -250,7 +251,7 @@ fun Quiz3Preview() {
 fun Quiz3PreviewDark() {
     Quiz3Theme(
         darkTheme = true
-    ){
+    ) {
         Quiz3App(DataContoh().loadExampleData())
     }
 }
