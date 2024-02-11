@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Quiz3</string>
+    <string name="cari_pasangan">Cari pasangan</string>
+    <string name="detail">Detail...</string>
+    <string name="header_title">Pencarian Calon Pasangan</string>
+    <string name="sub_title">Profil-profil berikut adalah peserta yang telah disesuaikan dengan preferensi mu</string>
+    <string name="button_find">Pencarian</string>
+    <string name="button_home">Home</string>
+    <string name="button_profile">Profil</string>
+</resources>
