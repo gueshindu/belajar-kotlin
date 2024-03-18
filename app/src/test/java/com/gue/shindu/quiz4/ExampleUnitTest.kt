@@ -1,4 +1,4 @@
-package com.gue.quiz3
+package com.gue.shindu.quiz4
 
 import org.junit.Test
 
