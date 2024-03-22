@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">GueQuiz4</string>
     <string name="back_button">Back</string>
+    <string name="mulai">Mulai</string>
+    <string name="awal_screen_1">"Temukan pasangan melalui "</string>
+    <string name="awal_screen_2">"ta’aruf "</string>
+    <string name="awal_screen_3">"membangun rumah tangga "</string>
+    <string name="awal_screen_4">sakinah</string>
+    <string name="cv">CV</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="titleCV">Isi form CV</string>
+    <string name="bodyCV">Masukkan data dirimu pada form yang kami sediakan. Data inilah yang akan dilihat oleh peserta-peserta lain</string>
+    <string name="mediasi">Mediasi</string>
+    <string name="mediasi_title">Ta\'aruf dibantu oleh mediator</string>
+    <string name="mediasi_body">Jika proses ta\'aruf dimulai, mediator akan membantumu untuk komunikasi hingga nadzor dengan calon pasangan</string>
+    <string name="menikah_body">Jika kedua pihak sudah sepenuhnya yakin, semoga pernikahan yang diidamkan dapat terlaksana</string>
+    <string name="menikah_title">Menikah!</string>
+    <string name="menikah">Menikah</string>
 </resources>
